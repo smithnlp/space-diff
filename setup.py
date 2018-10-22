@@ -11,11 +11,11 @@ setuptools.setup(
     description="A tool that highlights inconsistencies in word segmentation.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/smithnlp/space-diff",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU GPLv3",
         "Operating System :: OS Independent",
     ],
 )
