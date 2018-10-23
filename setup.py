@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="space-diff",
-    version="0.0.2",
+    version="0.0.3",
     author="Blake Perry Smith",
     author_email="perry.smithb@gmail.com",
     description="A tool that highlights inconsistencies in word segmentation.",
@@ -14,9 +14,9 @@ setuptools.setup(
     url="https://github.com/smithnlp/space-diff",
     keywords=[
         'chinese',
+        'japanese',
         'word segmentation',
         'corpus linguistics',
-        'japanese',
         'consistency'],
     packages=setuptools.find_packages(),
     install_requires=['progress'],

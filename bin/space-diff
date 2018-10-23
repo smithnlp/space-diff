@@ -15,9 +15,8 @@ def configure():
 
     corpora = [(corpus file name, [lines], [tokenized lines]), (n, l, tl)]
     """
-    parser = argparse.ArgumentParser(description='This program highlights '
-                                     'inconsistencies in the segmentation of '
-                                     'any spaceless orthography training data')
+    parser = argparse.ArgumentParser(description='A tool that highlights',
+                                     'inconsistencies in word segmentation.')
     parser.add_argument('corp', nargs='+',
                         help='one or more files of segmented text')
     parser.add_argument('-d', '--digits',
@@ -131,8 +130,9 @@ def display(result_dict):
     global longest_fname
     global file_lengths
     print('\n')
-    print('Printing variation matches for each multi-character token, noting',
-          'the corpus and line number for each instance.')
+    print('If variation found, printing variation matches for each',
+          'multi-character token, noting the corpus and line number for each',
+          'instance.')
     print('\n')
     for token, info in result_dict.items():
         list_of_match_tups = info[1]
