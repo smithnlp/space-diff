@@ -3,7 +3,7 @@
 ## Description
 __space-diff__ is a tool that highlights inconsistencies in word segmentation within spaced texts (such as training corpora) for any spaceless orthography.
 
-This tool is Pure Python and requires Python 3.6+
+This tool is Pure Python and requires Python 3.7+
 
 ## Installation
 ```
@@ -11,14 +11,14 @@ pip install space-diff
 ```
 
 ## Usage/Tutorial
-Included in this repository are two sample corpora of segmented traditional Chinese which will be used in this tutorial for ease in following along. (Adapted from [Universal Dependencies' Chinese corpora](https://github.com/UniversalDependencies/UD_Chinese-GSD/tree/master).) The following instructions assume that you have __space-diff__ installed already, as well as the sample corpora.
+Included with [this project's homepage](https://github.com/smithnlp/space-diff) are two sample corpora of segmented traditional Chinese which will be used in this tutorial for ease in following along. (Adapted from [Universal Dependencies' Chinese corpora](https://github.com/UniversalDependencies/UD_Chinese-GSD/tree/master).) The following instructions assume that you have __space-diff__ installed already, as well as the sample corpora.
 
 ### Command line usage
 You can simply call the tool at the command line as follows:
 ```
 $ space-diff [-h] [-d] corp [corp ...]
 ```
-with the optional `-h | --help` argument, the optional `-d | --digits` argument, and one or more corpus file of segmented text.
+with the optional `-h`/`--help` argument, the optional `-d`/`--digits` argument, and one or more corpus file of segmented text.
 
 #### Using the sample data
 By running:

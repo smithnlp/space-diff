@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="space-diff",
-    version="0.0.4",
+    version="0.0.6",
     author="Blake Perry Smith",
     author_email="perry.smithb@gmail.com",
     description="A tool that highlights inconsistencies in word segmentation.",
@@ -20,10 +20,9 @@ setuptools.setup(
         'consistency'],
     packages=setuptools.find_packages(),
     install_requires=['progress'],
-    python_requires='~=3.6',
+    python_requires='~=3.7',
     scripts=['bin/space-diff'],
     classifiers=[
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
