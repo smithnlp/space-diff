@@ -16,14 +16,14 @@ Included in this repository are two sample corpora of segmented traditional Chin
 ### Command line usage
 You can simply call the tool at the command line as follows:
 ```
-$ python3 space-diff [-h] [-d] corp [corp ...]
+$ space-diff [-h] [-d] corp [corp ...]
 ```
 with the optional `-h | --help` argument, the optional `-d | --digits` argument, and one or more corpus file of segmented text.
 
 #### Using the sample data
 By running:
 ```
-$ python3 space-diff sample_corp_a.txt sample_corp_b.txt
+$ space-diff sample_corp_a.txt sample_corp_b.txt
 ```
 you will see the that the program updates you as it processes, and then ultimately prints a human-readable summary of its findings. Here's a sample:
 
@@ -34,17 +34,17 @@ This output allows manual review each instance of segmentation inconsistency, wh
 #### Using your own data
 For your own data, just pass the files and their paths if necessary, separated by spaces to __space-diff__ and optionally save the output to wherever you'd like.
 ```
-$ python3 space-diff ~/path/to/thisfile.txt ~/path/to/another.txt ~/path/to/third.txt > ~/Desktop/seg_inconsistency.txt
+$ space-diff ~/path/to/thisfile.txt ~/path/to/another.txt ~/path/to/third.txt > ~/Desktop/seg_inconsistency.txt
 ```
 
 #### Excluding digits
 By default, the tool considers strings like `12`, `712`, `1 20`, and `1220` as inconsistent segmentations of a 'multi-character' token `12`. If you wish to declutter the output with numerical cases like this, pass __space-diff__ the flag `-d` to ignore digits in its searching.
 ```
-$ python3 space-diff -d sample_corp_a.txt sample_corp_b.txt
+$ space-diff -d sample_corp_a.txt sample_corp_b.txt
 ```
 or
 ```
-$ python3 space-diff sample_corp_a.txt sample_corp_b.txt --digits
+$ space-diff sample_corp_a.txt sample_corp_b.txt --digits
 ```
 
 ## License

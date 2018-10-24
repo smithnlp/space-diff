@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="space-diff",
-    version="0.0.3",
+    version="0.0.4",
     author="Blake Perry Smith",
     author_email="perry.smithb@gmail.com",
     description="A tool that highlights inconsistencies in word segmentation.",
