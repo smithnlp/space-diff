@@ -15,10 +15,10 @@ def configure():
 
     corpora = [(corpus file name, [lines], [tokenized lines]), (n, l, tl)]
     """
-    parser = argparse.ArgumentParser(description='A tool that highlights'
+    parser = argparse.ArgumentParser(description='A tool that highlights '
                                      'inconsistencies in word segmentation.')
     parser.add_argument('corp', nargs='+',
-                        help='one or more files of segmented text')
+                        help='one or more file of segmented text')
     parser.add_argument('-d', '--digits',
                         action='store_true',
                         help='exclude digits from the search')

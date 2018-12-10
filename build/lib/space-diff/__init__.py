@@ -13,10 +13,10 @@ def configure():
 
     corpora = [(corpus file name, [lines], [tokenized lines]), (n, l, tl)]
     """
-    parser = argparse.ArgumentParser(description='A tool that highlights'
+    parser = argparse.ArgumentParser(description='A tool that highlights '
                                      'inconsistencies in word segmentation.')
     parser.add_argument('corp', nargs='+',
-                        help='one or more files of segmented text')
+                        help='one or more file of segmented text')
     parser.add_argument('-d', '--digits',
                         action='store_true',
                         help='exclude digits from the search')
@@ -25,11 +25,12 @@ def configure():
     digits = False
     if args.digits:
         digits = True
-        print('\n')
-        print('Ignoring digits in multi-character inconsistency checking.')
-        print('\n')
+        print('\n', file=sys.stderr)  # noqa
+        print('Ignoring digits in multi-character inconsistency checking.',
+              file=sys.stderr)
+        print('\n', file=sys.stderr)
     else:
-        print('\n')
+        print('\n', file=sys.stderr)
     global longest_fname
     global file_lengths
     filenames = args.corp
@@ -39,14 +40,14 @@ def configure():
     for fname in filenames:
         with open(fname) as f:
             lines = f.readlines()
-            print(f'Opening {fname}...', flush=True)  # noqa
+            print(f'Opening {fname}...', flush=True, file=sys.stderr)  # noqa
             file_lengths.append(len(lines))
-        print('    cleaning lines...', flush=True)
+        print('    cleaning lines...', flush=True, file=sys.stderr)
         clean_lines = [l.rstrip() for l in lines]
-        print('    splitting lines...', flush=True)
+        print('    splitting lines...', flush=True, file=sys.stderr)
         token_lines = [l.split(' ') for l in clean_lines]
         corpora.append((fname, lines, token_lines))
-        print('\n')
+        print('\n', file=sys.stderr)
     return corpora
 
 
@@ -58,7 +59,7 @@ def count_multi(corpus_tokenized):
     multi_words = {mword: (spaced regex, [])}
     """
     print('Searching corpora for multi-character tokens and compiling regular',
-          'expressions for fuzzy matches of each.', flush=True)
+          'expressions for fuzzy matches of each.', flush=True, file=sys.stderr)  # noqa
     global digits
     bar = IncrementalBar('Processing line by line', max=len(corpus_tokenized),
                          suffix='%(percent).1f%% |')
@@ -73,7 +74,7 @@ def count_multi(corpus_tokenized):
                 exp = re.compile(r'(.{,20})(\b\w*' + r'\s?'.join(re.escape(token)) + r'\w*\b)(.{,20})')  # noqa
                 multi_words[token] = (exp, [])
     bar.finish()
-    print('\n')
+    print('\n', file=sys.stderr)
     return multi_words
 
 
@@ -87,7 +88,7 @@ def find_variation(multi_words, corpora):
     """
     print('Searching corpora for matches and inconsistencies.',
           len(multi_words),
-          'multi-character tokens to process.', flush=True)
+          'multi-character tokens to process.', flush=True, file=sys.stderr)
     bar = IncrementalBar('Searching token by token', max=len(multi_words),
                          suffix='%(percent).1f%% | Time remaining %(eta_td)s')
     for token, info in multi_words.items():
@@ -127,11 +128,11 @@ def display(result_dict):
     """
     global longest_fname
     global file_lengths
-    print('\n')
+    print('\n', file=sys.stderr)
     print('If variation found, printing variation matches for each',
           'multi-character token, noting the corpus and line number for each',
-          'instance.')
-    print('\n')
+          'instance.', file=sys.stderr)
+    print('\n', file=sys.stderr)
     for token, info in result_dict.items():
         list_of_match_tups = info[1]
         if list_of_match_tups:
